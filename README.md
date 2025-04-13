@@ -7,7 +7,9 @@ com a interface gráfica.
 1. Importação de biblioteca
 
 import pyautogui
+
 import time
+
 import pandas
 pyautogui: usada para simular ações do mouse e teclado.
 
