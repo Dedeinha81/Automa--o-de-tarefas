@@ -11,6 +11,7 @@ import pyautogui
 import time
 
 import pandas
+
 pyautogui: usada para simular ações do mouse e teclado.
 
 time: usada para pausar o código por alguns segundos.
