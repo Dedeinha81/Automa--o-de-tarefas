@@ -1,86 +1,67 @@
-Este projeto automatiza o processo de cadastro de produtos em um sistema web utilizando Python e a
-biblioteca pyautogui. Ele simula ações humanas como abrir o navegador, preencher formulários e interagir
-com a interface gráfica.
 
- Etapas do código
- 
-1. Importação de biblioteca
 
-import pyautogui
 
-import time
 
-import pandas
+# 🤖 Automação de Cadastro de Produtos com Python e PyAutoGUI
 
-pyautogui: usada para simular ações do mouse e teclado.
+Este projeto automatiza o processo de cadastro de produtos em um sistema web utilizando **Python** e a biblioteca **PyAutoGUI**. O script simula ações humanas, como abrir o navegador, preencher formulários e interagir com a interface gráfica do sistema.
 
-time: usada para pausar o código por alguns segundos.
+---
 
-pandas: usada para ler o arquivo .csv com os dados dos produtos.
+## 🧰 Tecnologias Utilizadas
 
-2. Configuração da pausa entre comandos
+- Python 3  
+- PyAutoGUI (automação de mouse e teclado)  
+- Pandas (leitura de arquivos CSV)  
+- Time (controle de pausas no script)
 
-pyautogui.PAUSE = 0.5
+---
 
-Isso define um tempo de espera de 0.5 segundos entre cada comando do pyautogui, para não executar muito rápido.
+## ⚙️ Como o Código Funciona
 
-3. Abrir o navegador e acessar o sistema da empresa
+1. **Importação das bibliotecas:**  
+   - `pyautogui` para controlar mouse e teclado  
+   - `time` para pausas entre comandos  
+   - `pandas` para ler os dados dos produtos a partir de um arquivo CSV
+
+2. **Configuração de pausa entre comandos:**  
+   Define um intervalo de 0.5 segundos entre cada comando do PyAutoGUI para evitar execuções muito rápidas que possam falhar.
+
+3. **Abrir o navegador e acessar o sistema:**  
+   - Abre o menu Iniciar do Windows  
+   - Digita e abre o navegador Google Chrome  
+   - Acessa a URL do sistema web da empresa  
+   - Aguarda o carregamento da página
+
+4. **Realizar login no sistema:**  
+   - Clica no campo de e-mail  
+   - Digita o e-mail de login  
+   - Pressiona TAB e Enter para fazer o login  
+   - Aguarda a próxima página carregar
+
+5. **Ler a planilha de produtos:**  
+   - Lê o arquivo `produtos.csv` que contém os dados dos produtos a serem cadastrados  
+   - Exibe a tabela no terminal para conferência
+
+6. **Cadastrar os produtos automaticamente:**  
+   Para cada produto na tabela:  
+   - Clica no botão “Novo Produto”  
+   - Preenche os campos (código, marca, tipo, categoria, preço unitário, custo, observações)  
+   - Pressiona Enter para enviar o cadastro  
+   - Dá scroll para manter o botão visível para o próximo cadastro
+
+---
+
+## 📋 Como Executar
+
+1. Certifique-se de ter Python 3 instalado.  
+2. Instale as dependências:  
+
+   pip install pyautogui pandas
+
+   ## 📋 Execute o Script
    
-pyautogui.press("win")
+   python seu_script.py
 
-pyautogui.write("chrome")
-
-pyautogui.press("enter")
-
-pyautogui.write("https://dlp.hashtagtreinamentos.com/python/intensivao/login")
-
-pyautogui.press("enter")
-
-time.sleep(3)
-
-Aqui, o código:
-
-Abre o menu Iniciar do Windows
-
-Digita “chrome”
-
-Acessa a URL do sistema
-
-Aguarda o carregamento da página
-
-4. Fazer login no sistema
-
-pyautogui.click(x=854, y=313)
-
-pyautogui.write("dedeinha81@hotmail.com")
-
-pyautogui.press("tab")
-
-pyautogui.press("enter")
-
-time.sleep(3)
-
-Simula um clique no campo de e-mail e faz o login com o e-mail informado.
-
-5. Ler a planilha de produtos
-
-tabela = pandas.read_csv("produtos.csv")
-
-print(tabela)
-
-Lê o arquivo produtos.csv, que contém os dados a serem cadastrados, e exibe no terminal.
-
-6. Cadastrar os produtos um por um
-
-for linha in tabela.index:
-    
-Para cada linha da planilha, o código:
-
-Clica no botão de “Novo Produto”
-
-Preenche os campos: código, marca, tipo, categoria, preço unitário, custo, observações
-
-Pressiona Enter para enviar
-
-Dá scroll na página para garantir que o botão continue visível
+   O programa abrirá o navegador, fará login e começará a cadastrar os produtos automaticamente.
 
